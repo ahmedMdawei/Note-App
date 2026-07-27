@@ -36,7 +36,8 @@ class NoteApp extends StatelessWidget {
           ],
 
         ),
-        body: NotesScreen(),
+        floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.plus_one),),
+        body: const NotesScreen(),
       ),
     );
   }
