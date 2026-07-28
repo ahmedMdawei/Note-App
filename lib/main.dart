@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:note_app/screens/notes_screen.dart';
+import 'package:note_app/widgets/floating_add_note_button.dart';
 void main() {
   runApp(const NoteApp());
 }
@@ -24,19 +25,11 @@ class NoteApp extends StatelessWidget {
 
       theme: ThemeData.dark(),
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 45, 53, 56),
-          titleSpacing: 20,
-          actionsPadding: EdgeInsets.only(left: 20),
-          title: Text("ملاحظاتي"),
-          actions: [
-            Icon(Icons.search,
-            size: 30,
-            ),
-          ],
+        floatingActionButton: FloatingAddNoteButton(onPressed: () {
 
-        ),
-        floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.plus_one),),
+         },
+         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         body: const NotesScreen(),
       ),
     );
