@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/screens/edit_note.dart';
 
 /// ويدجت [NoteCard] تمثل بطاقة الملاحظة الفردية.
 /// مصممة لتكون Stateless لاستقبال البيانات وعرضها فقط.
@@ -25,36 +26,42 @@ class NoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(16.0),
-        border: Border.all(color: Colors.black.withOpacity(0.1), width: 1),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.03),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 1. ترويسة البطاقة (العنوان وأيقونة الحذف)
-          _buildHeader(),
-          const SizedBox(height: 12.0),
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>
+        EditNote()));
+      },
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(16.0),
+          border: Border.all(color: Colors.black.withOpacity(0.1), width: 1),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.03),
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 1. ترويسة البطاقة (العنوان وأيقونة الحذف)
+            _buildHeader(),
+            const SizedBox(height: 12.0),
 
-          // 2. محتوى البطاقة (النصوص أو القوائم)
-          _buildContent(context),
+            // 2. محتوى البطاقة (النصوص أو القوائم)
+            _buildContent(context),
 
-          const SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
-          // 3. تذييل البطاقة (التاريخ والوسوم)
-          _buildFooter(),
-        ],
+            // 3. تذييل البطاقة (التاريخ والوسوم)
+            _buildFooter(),
+          ],
+        ),
       ),
     );
   }

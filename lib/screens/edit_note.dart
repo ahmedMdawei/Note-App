@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/widgets/addtional_widgets/tags.dart';
 
-class AddNoteBottomSheet extends StatefulWidget {
-  const AddNoteBottomSheet({super.key});
+class EditNote extends StatefulWidget {
+  const EditNote({super.key});
 
   @override
-  State<AddNoteBottomSheet> createState() => _AddNoteBottomSheetState();
+  State<EditNote> createState() => _EditNoteState();
 }
 
-class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
+class _EditNoteState extends State<EditNote> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _contentController = TextEditingController();
 

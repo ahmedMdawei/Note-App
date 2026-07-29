@@ -29,7 +29,7 @@ class NotesScreen extends StatelessWidget {
               backgroundColor: Colors
                   .transparent, // لجعل الحواف العلوية الدائرية تظهر بشكل صحيح
               builder: (BuildContext context) {
-                return const AddNoteBottomSheet();
+                return const AddNote();
               },
             );
           },
