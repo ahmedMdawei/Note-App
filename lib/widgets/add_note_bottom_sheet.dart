@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/widgets/add_category_bottom_sheet.dart';
 
 class AddNoteBottomSheet extends StatefulWidget {
   const AddNoteBottomSheet({super.key});
@@ -68,7 +69,7 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 1, 23, 45),
+                  color: Color.fromARGB(255, 2, 40, 78),
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(color: Colors.grey.shade100),
                   boxShadow: [
@@ -111,7 +112,9 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
                         ),
                         decoration: const InputDecoration(
                           hintText: 'ابدأ الكتابة...',
-                          hintStyle: TextStyle(color: Color.fromARGB(255, 218, 217, 217)),
+                          hintStyle: TextStyle(
+                            color: Color.fromARGB(255, 218, 217, 217),
+                          ),
                           border: InputBorder.none,
                         ),
                       ),
@@ -130,7 +133,6 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
     );
   }
 
-
   Widget _buildTagsRow() {
     return SizedBox(
       height: 40,
@@ -146,9 +148,23 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
               shape: BoxShape.circle,
             ),
             child: IconButton(
-              icon: const Icon(Icons.add, color: Color.fromARGB(255, 213, 233, 249), size: 20),
-              onPressed: () {
-                // منطق إضافة وسم جديد
+              icon: const Icon(Icons.add, color: Color(0xFF2196F3), size: 20),
+              onPressed: () async {
+                // نستخدم await لانتظار البيانات العائدة من الواجهة
+                final result = await showModalBottomSheet<Map<String, dynamic>>(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  builder: (BuildContext context) {
+                    return const AddCategoryBottomSheet();
+                  },
+                );
+
+                // التحقق مما إذا كان المستخدم قد أضاف تصنيفاً بالفعل
+                if (result != null) {
+                  final newCategoryName = result['name'];
+                  final newCategoryColor = result['color'];
+                }
               },
             ),
           ),
