@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/widgets/add_note_bottom_sheet.dart';
-import 'package:note_app/widgets/custom_appbar.dart';
+import 'package:note_app/screens/add_note.dart';
+import 'package:note_app/widgets/addtional_widgets/custom_appbar.dart';
 import 'package:note_app/widgets/floating_add_note_button.dart';
 import 'package:note_app/widgets/notes_listview_builder.dart';
 
